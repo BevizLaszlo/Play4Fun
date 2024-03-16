@@ -33,8 +33,8 @@
             this.soundLbl = new System.Windows.Forms.Label();
             this.containerPanel = new System.Windows.Forms.Panel();
             this.soundPanel = new System.Windows.Forms.Panel();
-            this.soundON = new System.Windows.Forms.RadioButton();
             this.soundOFF = new System.Windows.Forms.RadioButton();
+            this.soundON = new System.Windows.Forms.RadioButton();
             this.containerPanel.SuspendLayout();
             this.soundPanel.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +84,16 @@
             this.soundPanel.Size = new System.Drawing.Size(150, 25);
             this.soundPanel.TabIndex = 4;
             // 
+            // soundOFF
+            // 
+            this.soundOFF.AutoSize = true;
+            this.soundOFF.Location = new System.Drawing.Point(85, 5);
+            this.soundOFF.Name = "soundOFF";
+            this.soundOFF.Size = new System.Drawing.Size(45, 17);
+            this.soundOFF.TabIndex = 1;
+            this.soundOFF.Text = "OFF";
+            this.soundOFF.UseVisualStyleBackColor = true;
+            // 
             // soundON
             // 
             this.soundON.AutoSize = true;
@@ -95,16 +105,6 @@
             this.soundON.TabStop = true;
             this.soundON.Text = "ON";
             this.soundON.UseVisualStyleBackColor = true;
-            // 
-            // soundOFF
-            // 
-            this.soundOFF.AutoSize = true;
-            this.soundOFF.Location = new System.Drawing.Point(85, 5);
-            this.soundOFF.Name = "soundOFF";
-            this.soundOFF.Size = new System.Drawing.Size(45, 17);
-            this.soundOFF.TabIndex = 1;
-            this.soundOFF.Text = "OFF";
-            this.soundOFF.UseVisualStyleBackColor = true;
             // 
             // Settings
             // 
