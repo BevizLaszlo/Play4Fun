@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Play4Fun.src.Classes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Play4Fun.src.Forms
 {
     public partial class Game : Form
     {
         private Panel[] characterPanels;
+        private GameModeForm gameModeForm = new GameModeForm();
         public Game()
         {
             InitializeComponent();
@@ -39,11 +41,27 @@ namespace Play4Fun.src.Forms
                 character.Height = flowLayoutPanel1.Height;
             }
 
+           player3_checkBox.CheckedChanged += new EventHandler(Players);
+           player4_checkBox.CheckedChanged += new EventHandler(Players);
         }
 
         private void nextPage_Click(object sender, EventArgs e)
         {
+            
+            gameModeForm.ShowDialog();
             Application.Exit();
+
+        }
+
+        private void exit_button_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Players(object sender, EventArgs e)
+        {
+            player3visible_panel.Visible = player3_checkBox.Checked;
+            player4visible_panel.Visible = player4_checkBox.Checked;
         }
     }
 }

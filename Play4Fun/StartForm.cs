@@ -29,16 +29,19 @@ namespace Play4Fun
         private void settingsBtn_Click(object sender, EventArgs e)
         {
             settingsForm.ShowDialog();
+            Application.Exit();
         }
 
         private void creditsLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             creditsForm.ShowDialog();
+            Application.Exit();
         }
 
         private void startBtn_Click(object sender, EventArgs e)
         {
             gameForm.ShowDialog();
+            Application.Exit();
         }
     }
 }
