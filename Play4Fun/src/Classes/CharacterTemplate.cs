@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Play4Fun.src.Classes
 {
@@ -22,6 +23,13 @@ namespace Play4Fun.src.Classes
             ForeColor = foreColor;
 
             Templates.Add(this);
+        }
+
+        public static void SetCharacterTemplate(Panel panel, PictureBox picBox, int templateIndex)
+        {
+            panel.BackColor = Templates[templateIndex].BackColor;
+            panel.ForeColor = Templates[templateIndex].ForeColor;
+            picBox.BackgroundImage = Templates[templateIndex].Image;
         }
 
     }

@@ -16,17 +16,18 @@ namespace Play4Fun.src.Forms
     {
         private Panel[] characterPanels;
         private GameModeForm gameModeForm = new GameModeForm();
+        int[] templates = new int[4] { 0, 0, 0, 0 };
         public Game()
         {
             InitializeComponent();
             characterPanels = new Panel[4] { char1Pnl, char2Pnl, char3Pnl, char4Pnl};
 
             new CharacterTemplate(@"..\..\src\images\green.png", Color.FromArgb(0, 255, 0), Color.Black);
-            new CharacterTemplate(@"..\..\src\images\blue.png", Color.FromArgb(0, 0, 255), Color.Black);
-            new CharacterTemplate(@"..\..\src\images\yellow.png", Color.FromArgb(0, 255, 255), Color.Black);
+            new CharacterTemplate(@"..\..\src\images\blue.png", Color.FromArgb(0, 0, 255), Color.White);
+            new CharacterTemplate(@"..\..\src\images\yellow.png", Color.FromArgb(255, 255, 0), Color.Black);
             new CharacterTemplate(@"..\..\src\images\red.png", Color.FromArgb(255, 0, 0), Color.Black);
 
-            pictureBox1.BackgroundImage = CharacterTemplate.Templates[0].Image;
+            UpdateAllTemplates();
         }
 
         private void Game_Load(object sender, EventArgs e)
@@ -62,6 +63,33 @@ namespace Play4Fun.src.Forms
         {
             player3visible_panel.Visible = player3_checkBox.Checked;
             player4visible_panel.Visible = player4_checkBox.Checked;
+        }
+
+        private void PrevCharTemp(object sender, EventArgs e)
+        {
+            int btnIndex = int.Parse((sender as Button).Tag.ToString()) - 1;
+
+            templates[btnIndex]--;
+            if (templates[btnIndex] < 0) templates[btnIndex] = 3;
+            UpdateAllTemplates();
+
+        }
+
+        private void NextCharTemp(object sender, EventArgs e)
+        {
+            int btnIndex = int.Parse((sender as Button).Tag.ToString()) - 1;
+
+            templates[btnIndex]++;
+            if (templates[btnIndex] > 3) templates[btnIndex] = 0;
+            UpdateAllTemplates();
+        }
+
+        private void UpdateAllTemplates()
+        {
+            CharacterTemplate.SetCharacterTemplate(char1Pnl, pictureBox1, templates[0]);
+            CharacterTemplate.SetCharacterTemplate(char2Pnl, pictureBox2, templates[1]);
+            CharacterTemplate.SetCharacterTemplate(player3visible_panel, pictureBox3, templates[2]);
+            CharacterTemplate.SetCharacterTemplate(player4visible_panel, pictureBox4, templates[3]);
         }
     }
 }
