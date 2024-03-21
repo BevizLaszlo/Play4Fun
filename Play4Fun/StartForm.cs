@@ -41,6 +41,7 @@ namespace Play4Fun
         private void startBtn_Click(object sender, EventArgs e)
         {
             gameForm.ShowDialog();
+
             Application.Exit();
         }
     }
