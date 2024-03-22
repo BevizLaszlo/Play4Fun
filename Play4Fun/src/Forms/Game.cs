@@ -14,6 +14,7 @@ namespace Play4Fun.src.Forms
 {
     public partial class Game : Form
     {
+        public string[] characterNames = new string[4];
         private Panel[] characterPanels;
         private GameModeForm gameModeForm = new GameModeForm();
         int[] templates = new int[4] { 0, 0, 0, 0 };
@@ -90,6 +91,11 @@ namespace Play4Fun.src.Forms
             CharacterTemplate.SetCharacterTemplate(char2Pnl, pictureBox2, templates[1]);
             CharacterTemplate.SetCharacterTemplate(player3visible_panel, pictureBox3, templates[2]);
             CharacterTemplate.SetCharacterTemplate(player4visible_panel, pictureBox4, templates[3]);
+
+            characterNames[0] = name1.Text;
+            characterNames[1] = name2.Text;
+            characterNames[2] = name3.Text;
+            characterNames[3] = name4.Text;
         }
     }
 }

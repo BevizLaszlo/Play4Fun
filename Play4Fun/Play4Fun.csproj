@@ -54,6 +54,12 @@
     <Compile Include="src\Forms\Credits.Designer.cs">
       <DependentUpon>Credits.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Forms\HangmanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\HangmanForm.Designer.cs">
+      <DependentUpon>HangmanForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Forms\Game.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,12 @@
     </Compile>
     <Compile Include="src\Forms\GameModeForm.Designer.cs">
       <DependentUpon>GameModeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\HangmanWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\HangmanWord.Designer.cs">
+      <DependentUpon>HangmanWord.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Forms\Settings.cs">
       <SubType>Form</SubType>
@@ -88,6 +100,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\GameModeForm.resx">
       <DependentUpon>GameModeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\HangmanForm.resx">
+      <DependentUpon>HangmanForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\HangmanWord.resx">
+      <DependentUpon>HangmanWord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
