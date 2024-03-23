@@ -15,6 +15,7 @@ namespace Play4Fun.src.Forms
     public partial class Game : Form
     {
         public string[] characterNames = new string[4];
+        public int[] character_points = new int[4] { 0, 0, 0, 0 };
         private Panel[] characterPanels;
         private GameModeForm gameModeForm = new GameModeForm();
         int[] templates = new int[4] { 0, 0, 0, 0 };
