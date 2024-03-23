@@ -12,9 +12,16 @@ namespace Play4Fun.src.Forms
 {
     public partial class HangmanForm : Form
     {
+        private string secretWord;
+        private string displayWord;
         public HangmanForm()
         {
             InitializeComponent();
+        }
+
+        private void HangmanForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

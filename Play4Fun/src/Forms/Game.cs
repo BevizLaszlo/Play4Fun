@@ -18,6 +18,7 @@ namespace Play4Fun.src.Forms
         private Panel[] characterPanels;
         private GameModeForm gameModeForm = new GameModeForm();
         int[] templates = new int[4] { 0, 0, 0, 0 };
+        public (Image, Color, Color)[] characterTemplates = new (Image, Color, Color)[4];
         public Game()
         {
             InitializeComponent();
@@ -27,6 +28,11 @@ namespace Play4Fun.src.Forms
             new CharacterTemplate(@"..\..\src\images\blue.png", Color.FromArgb(0, 0, 255), Color.White);
             new CharacterTemplate(@"..\..\src\images\yellow.png", Color.FromArgb(255, 255, 0), Color.Black);
             new CharacterTemplate(@"..\..\src\images\red.png", Color.FromArgb(255, 0, 0), Color.Black);
+
+            characterTemplates[0] = (Image.FromFile(@"..\..\src\images\green.png"), Color.FromArgb(0, 255, 0), Color.Black);
+            characterTemplates[1] = (Image.FromFile(@"..\..\src\images\blue.png"), Color.FromArgb(0, 0, 255), Color.White);
+            characterTemplates[2] = (Image.FromFile(@"..\..\src\images\yellow.png"), Color.FromArgb(255, 255, 0), Color.Black);
+            characterTemplates[3] = (Image.FromFile(@"..\..\src\images\red.png"), Color.FromArgb(255, 0, 0), Color.Black);
 
             UpdateAllTemplates();
         }
@@ -85,6 +91,7 @@ namespace Play4Fun.src.Forms
             UpdateAllTemplates();
         }
 
+
         private void UpdateAllTemplates()
         {
             CharacterTemplate.SetCharacterTemplate(char1Pnl, pictureBox1, templates[0]);
@@ -92,6 +99,12 @@ namespace Play4Fun.src.Forms
             CharacterTemplate.SetCharacterTemplate(player3visible_panel, pictureBox3, templates[2]);
             CharacterTemplate.SetCharacterTemplate(player4visible_panel, pictureBox4, templates[3]);
 
+            for (int i = 0; i < templates.Length; i++)
+            {
+                characterPanels[i].BackgroundImage = characterTemplates[templates[i]].Item1;
+                characterPanels[i].BackColor = characterTemplates[templates[i]].Item2;
+                characterPanels[i].ForeColor = characterTemplates[templates[i]].Item3;
+            }
             characterNames[0] = name1.Text;
             characterNames[1] = name2.Text;
             characterNames[2] = name3.Text;

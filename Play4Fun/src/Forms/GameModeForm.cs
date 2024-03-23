@@ -12,7 +12,8 @@ namespace Play4Fun.src.Forms
 {
     public partial class GameModeForm : Form
     {
-      
+        private Game game;
+        private Form[] games = new Form[5];
         public GameModeForm()
         {
             InitializeComponent();
@@ -28,6 +29,16 @@ namespace Play4Fun.src.Forms
         private void exit_button_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void nextPage_Click(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            int randomnum = random.Next(0, games.Length); 
+            games[0] = new HangmanWord(game.characterNames[randomnum], game.characterTemplates[randomnum].Item2, game.characterTemplates[randomnum].Item3);
+            games[randomnum].ShowDialog();
+            Application.Exit();
+
         }
     }
 }
