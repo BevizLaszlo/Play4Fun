@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Play4Fun.src.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,12 +14,24 @@ namespace Play4Fun.src.Forms
 {
     public partial class HangmanForm : Form
     {
-        private Game game;
+        private int attempts = 8;
+        private int playerGuessingIndex = 0;
         private string secretWord;
-        private string displayWord;
-        public HangmanForm()
+        private string guessedWord;
+        private int[] points = new int[Gameplay.Instance.Players.Count];
+        bool isWin = false;
+        public HangmanForm(string word)
         {
             InitializeComponent();
+            secretWord = word;
+            foreach (char c in secretWord)
+            {
+                if (c == ' ') guessedWord += ' ';
+                else guessedWord += "＿";
+            }
+            guessplayersword_label.Text = $"GUESS {Gameplay.Instance.Players[Gameplay.PlayerTurnIndex].Name.ToUpper()}'S WORD";
+            SetGuessingPlayer();
+            UpdateContent();
         }
 
         private void HangmanForm_Load(object sender, EventArgs e)
@@ -25,16 +39,113 @@ namespace Play4Fun.src.Forms
             this.TopMost = true;
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
+        }
 
-            game.characterNames[0] = player1_lbl.Text;
-            game.characterNames[1] = player2_lbl.Text;
-            game.characterNames[2] = player3_lbl.Text;
-            game.characterNames[3] = player4_lbl.Text;
+        private void UpdateContent()
+        {
+            wrongWordCouldBe_label.Text = attempts.ToString();
+            playersTurn_label.Text = $"{Gameplay.Instance.Players[playerGuessingIndex].Name.ToUpper()}'S TURN";
 
-           player1_points_lbl.Text =Convert.ToString(game.character_points[0]);
-           player2_points_lbl.Text =Convert.ToString(game.character_points[1]);
-           player3_points_lbl.Text =Convert.ToString(game.character_points[2]);
-           player4_points_lbl.Text =Convert.ToString(game.character_points[3]);
+            hangman_pictureBox.Image = Image.FromFile($@"..\..\src\images\{attempts}.png");
+
+            secretWordLbl.Text = string.Empty;
+            foreach (char c in guessedWord)
+            {
+                secretWordLbl.Text += $"{c}  ";
+            }
+
+            player_lbl.Text = string.Empty;
+            points_label.Text = string.Empty;
+            for (int i = 0; i < Gameplay.Instance.Players.Count; i++)
+            {
+                player_lbl.Text += $"{Gameplay.Instance.Players[i].Name.ToUpper()}\n";
+                points_label.Text += $"{points[i]}\n";
+            }
+        }
+
+        private void SetGuessingPlayer()
+        {
+            do
+            {
+                if (playerGuessingIndex == Gameplay.PlayerTurnIndex) playerGuessingIndex++;
+                if (playerGuessingIndex >= Gameplay.Instance.Players.Count) playerGuessingIndex = 0;
+            } while (playerGuessingIndex == Gameplay.PlayerTurnIndex);
+        }
+
+        private void guessBtn_Click(object sender, EventArgs e)
+        {
+            string word = guessTextBox.Text;
+            char character = ' ';
+            guessTextBox.Text = string.Empty;
+
+            if (word.Length == 0)
+            {
+                MessageBox.Show("You must type something to the textbox before hitting the GUESS button", "Error", MessageBoxButtons.OK);
+                return;
+            }
+
+            if (word.Length > 1)
+            {
+                if (word == secretWord)
+                {
+                    points[playerGuessingIndex] += 5;
+                    points[Gameplay.PlayerTurnIndex] += guessedWord.Length;
+                    guessedWord = secretWord;
+                    isWin = true;
+                }
+                else
+                {
+                    wrong_word_listBox.Items.Add(word);
+                    attempts--;
+                }
+            }
+            else
+            {
+                character = word[0];
+                if (secretWord.Contains(character))
+                {
+                    points[playerGuessingIndex]++;
+                    points[Gameplay.PlayerTurnIndex] += guessedWord.Length;
+
+                    string tempGuessedWord = string.Empty;
+                    for (int i = 0; i < secretWord.Length; i++)
+                    {
+                        if (secretWord[i] == character) tempGuessedWord += character;
+                        else tempGuessedWord += guessedWord[i];
+                    }
+                    guessedWord = tempGuessedWord;
+                }
+                else
+                {
+                    wrong_word_listBox.Items.Add(character);
+                    attempts--;
+                }
+            }
+
+            playerGuessingIndex++;
+            SetGuessingPlayer();
+
+            UpdateContent();
+            if (!guessedWord.Contains('＿')) isWin = true;
+
+            if (isWin)
+            {
+                AddPointsToPlayers();
+                MessageBox.Show($"The word was guessed ({secretWord})", "You win", MessageBoxButtons.OK);
+                this.Close();
+            }
+            if (attempts == 0)
+            {
+                AddPointsToPlayers();
+                MessageBox.Show($"The word was not guessed ({secretWord})", "You lose", MessageBoxButtons.OK);
+                this.Close();
+            }
+        }
+
+        private void AddPointsToPlayers()
+        {
+            for (int i = 0; i < Gameplay.Instance.Players.Count; i++)
+                Gameplay.Instance.Players[i].Points += points[i];
         }
     }
 }

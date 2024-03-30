@@ -12,13 +12,18 @@ namespace Play4Fun.src.Classes
         public static List<Player> PlayerList = new List<Player>();
 
         public string Name { get; set; }
-        public Color Color { get; set; }
+        public Image Image { get; set; }
+        public Color BackColor { get; set; }
+        public Color ForeColor { get; set; }
         public int Points { get; set; }
 
         public Player(string name, CharacterTemplate charTemplate) 
         {
             Name = name;
             Points = 0;
+            Image = charTemplate.Image;
+            BackColor = charTemplate.BackColor;
+            ForeColor = charTemplate.ForeColor;
 
             PlayerList.Add(this);
         }

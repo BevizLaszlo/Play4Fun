@@ -47,12 +47,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\Classes\CharacterTemplate.cs" />
+    <Compile Include="src\Classes\GameInfo.cs" />
+    <Compile Include="src\Classes\Gameplay.cs" />
     <Compile Include="src\Classes\Player.cs" />
     <Compile Include="src\Forms\Credits.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="src\Forms\Credits.Designer.cs">
       <DependentUpon>Credits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\GameStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\GameStatus.Designer.cs">
+      <DependentUpon>GameStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Forms\HangmanForm.cs">
       <SubType>Form</SubType>
@@ -106,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\GameModeForm.resx">
       <DependentUpon>GameModeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\GameStatus.resx">
+      <DependentUpon>GameStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\HangmanForm.resx">
       <DependentUpon>HangmanForm.cs</DependentUpon>

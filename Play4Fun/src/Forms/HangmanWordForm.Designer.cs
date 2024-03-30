@@ -39,6 +39,7 @@
             // 
             // word_textBox
             // 
+            this.word_textBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.word_textBox.Location = new System.Drawing.Point(47, 253);
             this.word_textBox.Name = "word_textBox";
             this.word_textBox.Size = new System.Drawing.Size(706, 20);

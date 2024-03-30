@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Play4Fun.src.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,6 @@ namespace Play4Fun.src.Forms
 {
     public partial class GameModeForm : Form
     {
-        private Game game;
-        private Form[] games = {new HangmanWord()};
         public GameModeForm()
         {
             InitializeComponent();
@@ -33,10 +32,16 @@ namespace Play4Fun.src.Forms
 
         private void nextPage_Click(object sender, EventArgs e)
         {
-            //Random random = new Random();
-            //int randomnum = random.Next(0, games.Length); 
-            //games[randomnum] = new HangmanWord(game.characterNames[randomnum], game.characterTemplates[randomnum].Item2, game.characterTemplates[randomnum].Item3);
-            games[0].ShowDialog();
+            int turns;
+            if (quick_radioButton.Checked) turns = 3;
+            else if (normal_radioButton.Checked) turns = 5;
+            else turns = 7;
+
+
+            new Gameplay(Player.PlayerList, turns);
+            GameStatus gameStatus = new GameStatus();
+            gameStatus.ShowDialog();
+
             Application.Exit();
 
         }

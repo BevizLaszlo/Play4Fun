@@ -14,12 +14,9 @@ namespace Play4Fun.src.Forms
 {
     public partial class Game : Form
     {
-        public string[] characterNames = new string[4];
-        public int[] character_points = new int[4] { 0, 0, 0, 0 };
         private Panel[] characterPanels;
         private GameModeForm gameModeForm = new GameModeForm();
-        int[] templates = new int[4] { 0, 0, 0, 0 };
-        public (Image, Color, Color)[] characterTemplates = new (Image, Color, Color)[4];
+        int[] templates = new int[4] { 0, 1, 2, 3 };
         public Game()
         {
             InitializeComponent();
@@ -30,10 +27,6 @@ namespace Play4Fun.src.Forms
             new CharacterTemplate(@"..\..\src\images\yellow.png", Color.FromArgb(255, 255, 0), Color.Black);
             new CharacterTemplate(@"..\..\src\images\red.png", Color.FromArgb(255, 0, 0), Color.Black);
 
-            characterTemplates[0] = (Image.FromFile(@"..\..\src\images\green.png"), Color.FromArgb(0, 255, 0), Color.Black);
-            characterTemplates[1] = (Image.FromFile(@"..\..\src\images\blue.png"), Color.FromArgb(0, 0, 255), Color.White);
-            characterTemplates[2] = (Image.FromFile(@"..\..\src\images\yellow.png"), Color.FromArgb(255, 255, 0), Color.Black);
-            characterTemplates[3] = (Image.FromFile(@"..\..\src\images\red.png"), Color.FromArgb(255, 0, 0), Color.Black);
 
             UpdateAllTemplates();
         }
@@ -56,10 +49,18 @@ namespace Play4Fun.src.Forms
 
         private void nextPage_Click(object sender, EventArgs e)
         {
-            
+            FillPlayers();
             gameModeForm.ShowDialog();
             Application.Exit();
 
+        }
+
+        private void FillPlayers()
+        {
+            new Player(name1.Text, CharacterTemplate.Templates[templates[0]]);
+            new Player(name2.Text, CharacterTemplate.Templates[templates[1]]);
+            if (player3_checkBox.Checked) new Player(name3.Text, CharacterTemplate.Templates[templates[2]]);
+            if (player4_checkBox.Checked) new Player(name4.Text, CharacterTemplate.Templates[templates[3]]);
         }
 
         private void exit_button_Click(object sender, EventArgs e)
@@ -99,17 +100,6 @@ namespace Play4Fun.src.Forms
             CharacterTemplate.SetCharacterTemplate(char2Pnl, pictureBox2, templates[1]);
             CharacterTemplate.SetCharacterTemplate(player3visible_panel, pictureBox3, templates[2]);
             CharacterTemplate.SetCharacterTemplate(player4visible_panel, pictureBox4, templates[3]);
-
-            for (int i = 0; i < templates.Length; i++)
-            {
-                characterPanels[i].BackgroundImage = characterTemplates[templates[i]].Item1;
-                characterPanels[i].BackColor = characterTemplates[templates[i]].Item2;
-                characterPanels[i].ForeColor = characterTemplates[templates[i]].Item3;
-            }
-            characterNames[0] = name1.Text;
-            characterNames[1] = name2.Text;
-            characterNames[2] = name3.Text;
-            characterNames[3] = name4.Text;
         }
     }
 }
