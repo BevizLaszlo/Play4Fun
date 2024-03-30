@@ -18,7 +18,7 @@ namespace Play4Fun.src.Forms
         {
             InitializeComponent();
 
-            name_label.Text = Gameplay.Instance.Players[Gameplay.PlayerTurnIndex].Name;
+            name_label.Text = Gameplay.Instance.Players[Gameplay.PlayerTurnIndex].Name; 
             name_label.ForeColor = Gameplay.Instance.Players[Gameplay.PlayerTurnIndex].BackColor;
         }
 

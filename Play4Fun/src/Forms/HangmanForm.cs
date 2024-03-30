@@ -43,6 +43,7 @@ namespace Play4Fun.src.Forms
 
         private void UpdateContent()
         {
+            
             wrongWordCouldBe_label.Text = attempts.ToString();
             playersTurn_label.Text = $"{Gameplay.Instance.Players[playerGuessingIndex].Name.ToUpper()}'S TURN";
 
@@ -54,6 +55,8 @@ namespace Play4Fun.src.Forms
                 secretWordLbl.Text += $"{c}  ";
             }
 
+            pluspoints_label.Visible = true;
+            pluspoints_label.Text = string.Empty;
             player_lbl.Text = string.Empty;
             points_label.Text = string.Empty;
             for (int i = 0; i < Gameplay.Instance.Players.Count; i++)
@@ -61,6 +64,7 @@ namespace Play4Fun.src.Forms
                 player_lbl.Text += $"{Gameplay.Instance.Players[i].Name.ToUpper()}\n";
                 points_label.Text += $"{points[i]}\n";
             }
+            pluspoints_label.Text = $"+{points[playerGuessingIndex]}";
         }
 
         private void SetGuessingPlayer()

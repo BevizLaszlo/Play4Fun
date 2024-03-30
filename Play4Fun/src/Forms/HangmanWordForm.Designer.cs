@@ -39,7 +39,7 @@
             // 
             // word_textBox
             // 
-            this.word_textBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.word_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.word_textBox.Location = new System.Drawing.Point(47, 253);
             this.word_textBox.Name = "word_textBox";
             this.word_textBox.Size = new System.Drawing.Size(706, 20);
@@ -59,7 +59,7 @@
             // 
             // name_label
             // 
-            this.name_label.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.name_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.name_label.AutoSize = true;
             this.name_label.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold);
             this.name_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(39)))));
@@ -97,6 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(214)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.name_label);

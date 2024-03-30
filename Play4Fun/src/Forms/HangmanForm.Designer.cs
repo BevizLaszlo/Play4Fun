@@ -45,8 +45,8 @@
             this.guessplayersword_label = new System.Windows.Forms.Label();
             this.wrongchar_label = new System.Windows.Forms.Label();
             this.character_panel = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.points_label = new System.Windows.Forms.Label();
+            this.pluspoints_label = new System.Windows.Forms.Label();
             this.guess_points_lbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.hangman_pictureBox)).BeginInit();
             this.panel1.SuspendLayout();
@@ -234,26 +234,13 @@
             // 
             this.character_panel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.character_panel.Controls.Add(this.points_label);
-            this.character_panel.Controls.Add(this.label7);
+            this.character_panel.Controls.Add(this.pluspoints_label);
             this.character_panel.Controls.Add(this.guess_points_lbl);
             this.character_panel.Controls.Add(this.player_lbl);
             this.character_panel.Location = new System.Drawing.Point(1, 82);
             this.character_panel.Name = "character_panel";
             this.character_panel.Size = new System.Drawing.Size(216, 184);
             this.character_panel.TabIndex = 16;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.ForeColor = System.Drawing.Color.Green;
-            this.label7.Location = new System.Drawing.Point(186, 151);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(27, 19);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "+1";
-            this.label7.Visible = false;
             // 
             // points_label
             // 
@@ -266,6 +253,19 @@
             this.points_label.TabIndex = 17;
             this.points_label.Text = "0";
             this.points_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pluspoints_label
+            // 
+            this.pluspoints_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pluspoints_label.AutoSize = true;
+            this.pluspoints_label.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.pluspoints_label.ForeColor = System.Drawing.Color.Green;
+            this.pluspoints_label.Location = new System.Drawing.Point(186, 151);
+            this.pluspoints_label.Name = "pluspoints_label";
+            this.pluspoints_label.Size = new System.Drawing.Size(27, 19);
+            this.pluspoints_label.TabIndex = 16;
+            this.pluspoints_label.Text = "+1";
+            this.pluspoints_label.Visible = false;
             // 
             // guess_points_lbl
             // 
@@ -322,7 +322,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label secretWordLbl;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label pluspoints_label;
         private System.Windows.Forms.Button guessBtn;
         private System.Windows.Forms.Label points_label;
         private System.Windows.Forms.Label guess_points_lbl;
