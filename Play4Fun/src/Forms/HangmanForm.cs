@@ -89,7 +89,7 @@ namespace Play4Fun.src.Forms
                 if (word == secretWord)
                 {
                     points[playerGuessingIndex] += 5;
-                    points[Gameplay.PlayerTurnIndex] += guessedWord.Length;
+                    
                     guessedWord = secretWord;
                     isWin = true;
                 }
@@ -104,16 +104,18 @@ namespace Play4Fun.src.Forms
                 character = word[0];
                 if (secretWord.Contains(character))
                 {
-                    points[playerGuessingIndex]++;
-                    points[Gameplay.PlayerTurnIndex] += guessedWord.Length;
-
-                    string tempGuessedWord = string.Empty;
-                    for (int i = 0; i < secretWord.Length; i++)
+                    if (!guessedWord.Contains(character))
                     {
-                        if (secretWord[i] == character) tempGuessedWord += character;
-                        else tempGuessedWord += guessedWord[i];
+                        points[playerGuessingIndex]++;
+
+                        string tempGuessedWord = string.Empty;
+                        for (int i = 0; i < secretWord.Length; i++)
+                        {
+                            if (secretWord[i] == character) tempGuessedWord += character;
+                            else tempGuessedWord += guessedWord[i];
+                        }
+                        guessedWord = tempGuessedWord;
                     }
-                    guessedWord = tempGuessedWord;
                 }
                 else
                 {
@@ -130,6 +132,7 @@ namespace Play4Fun.src.Forms
 
             if (isWin)
             {
+                points[Gameplay.PlayerTurnIndex] += guessedWord.Length;
                 AddPointsToPlayers();
                 MessageBox.Show($"The word was guessed ({secretWord})", "You win", MessageBoxButtons.OK);
                 this.Close();
