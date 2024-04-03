@@ -20,6 +20,7 @@ namespace Play4Fun.src.Forms
 
             name_label.Text = Gameplay.Instance.Players[Gameplay.PlayerTurnIndex].Name; 
             name_label.ForeColor = Gameplay.Instance.Players[Gameplay.PlayerTurnIndex].BackColor;
+            name_label.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
         }
 
         private void HangmanWord_Load(object sender, EventArgs e)

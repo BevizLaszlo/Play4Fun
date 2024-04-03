@@ -30,6 +30,7 @@ namespace Play4Fun.src.Forms
                 else guessedWord += "＿";
             }
             guessplayersword_label.Text = $"GUESS {Gameplay.Instance.Players[Gameplay.PlayerTurnIndex].Name.ToUpper()}'S WORD";
+            guessTextBox.MaxLength = 1;
             SetGuessingPlayer();
             UpdateContent();
         }
@@ -46,6 +47,7 @@ namespace Play4Fun.src.Forms
             
             wrongWordCouldBe_label.Text = attempts.ToString();
             playersTurn_label.Text = $"{Gameplay.Instance.Players[playerGuessingIndex].Name.ToUpper()}'S TURN";
+            playersTurn_label.ForeColor = Gameplay.Instance.Players[Gameplay.PlayerTurnIndex].BackColor;
 
             hangman_pictureBox.Image = Image.FromFile($@"..\..\src\images\{attempts}.png");
 
