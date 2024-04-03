@@ -49,6 +49,7 @@ namespace Play4Fun.src.Forms
                     }
                 }
                 else Gameplay.Instance.ListOfGames[gameIndex].GameForm.ShowDialog();
+
                 UpdateFormContent();
             };
 
@@ -99,6 +100,18 @@ namespace Play4Fun.src.Forms
 
                 index++;
             }
+        }
+
+        private void slidingBtn_Click(object sender, EventArgs e)
+        {
+            new SlidingBlockPuzzle().ShowDialog();
+            UpdateFormContent();
+        }
+
+        private void raceBtn_Click(object sender, EventArgs e)
+        {
+            new RaceGame().ShowDialog();
+            UpdateFormContent();
         }
     }
 }

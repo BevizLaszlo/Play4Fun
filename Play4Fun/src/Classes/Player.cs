@@ -16,6 +16,7 @@ namespace Play4Fun.src.Classes
         public Color BackColor { get; set; }
         public Color ForeColor { get; set; }
         public int Points { get; set; }
+        public int PositionX { get; set; }
 
         public Player(string name, CharacterTemplate charTemplate) 
         {
@@ -24,6 +25,7 @@ namespace Play4Fun.src.Classes
             Image = charTemplate.Image;
             BackColor = charTemplate.BackColor;
             ForeColor = charTemplate.ForeColor;
+            PositionX = 0;
 
             PlayerList.Add(this);
         }

@@ -86,17 +86,23 @@
     <Compile Include="src\Forms\HangmanWordForm.Designer.cs">
       <DependentUpon>HangmanWordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Forms\RaceGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\RaceGame.Designer.cs">
+      <DependentUpon>RaceGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Forms\Settings.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="src\Forms\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\Forms\Test.cs">
+    <Compile Include="src\Forms\SlidingBlockPuzzle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\Forms\Test.Designer.cs">
-      <DependentUpon>Test.cs</DependentUpon>
+    <Compile Include="src\Forms\SlidingBlockPuzzle.Designer.cs">
+      <DependentUpon>SlidingBlockPuzzle.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Forms\TicTacToe.cs">
       <SubType>Form</SubType>
@@ -130,8 +136,14 @@
     <EmbeddedResource Include="src\Forms\HangmanWordForm.resx">
       <DependentUpon>HangmanWordForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\RaceGame.resx">
+      <DependentUpon>RaceGame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\SlidingBlockPuzzle.resx">
+      <DependentUpon>SlidingBlockPuzzle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\TicTacToe.resx">
       <DependentUpon>TicTacToe.cs</DependentUpon>
