@@ -145,7 +145,7 @@ namespace Play4Fun.src.Forms
 
         private bool IsEndOfGame()
         {
-            return playerRanking.Count == 3;
+            return playerRanking.Count == Gameplay.Instance.Players.Count - 1;
         }
 
         private void RollAnimation()

@@ -37,8 +37,6 @@
             this.standingLbl = new System.Windows.Forms.Label();
             this.standingPnl = new System.Windows.Forms.Panel();
             this.turnLbl = new System.Windows.Forms.Label();
-            this.slidingBtn = new System.Windows.Forms.Button();
-            this.raceBtn = new System.Windows.Forms.Button();
             this.gameDescPnl.SuspendLayout();
             this.mainPnl.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +68,7 @@
             this.startGameBtn.TabIndex = 2;
             this.startGameBtn.Text = "START GAME";
             this.startGameBtn.UseVisualStyleBackColor = false;
+            this.startGameBtn.Click += new System.EventHandler(this.startGameBtn_Click);
             // 
             // gameDescLbl
             // 
@@ -110,8 +109,6 @@
             // 
             // mainPnl
             // 
-            this.mainPnl.Controls.Add(this.raceBtn);
-            this.mainPnl.Controls.Add(this.slidingBtn);
             this.mainPnl.Controls.Add(this.standingLbl);
             this.mainPnl.Controls.Add(this.standingPnl);
             this.mainPnl.Controls.Add(this.turnLbl);
@@ -153,26 +150,6 @@
             this.turnLbl.TabIndex = 0;
             this.turnLbl.Text = "TURN: X/X";
             // 
-            // slidingBtn
-            // 
-            this.slidingBtn.Location = new System.Drawing.Point(25, 13);
-            this.slidingBtn.Name = "slidingBtn";
-            this.slidingBtn.Size = new System.Drawing.Size(75, 23);
-            this.slidingBtn.TabIndex = 3;
-            this.slidingBtn.Text = "sliding";
-            this.slidingBtn.UseVisualStyleBackColor = true;
-            this.slidingBtn.Click += new System.EventHandler(this.slidingBtn_Click);
-            // 
-            // raceBtn
-            // 
-            this.raceBtn.Location = new System.Drawing.Point(107, 13);
-            this.raceBtn.Name = "raceBtn";
-            this.raceBtn.Size = new System.Drawing.Size(75, 23);
-            this.raceBtn.TabIndex = 4;
-            this.raceBtn.Text = "race";
-            this.raceBtn.UseVisualStyleBackColor = true;
-            this.raceBtn.Click += new System.EventHandler(this.raceBtn_Click);
-            // 
             // GameStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -204,7 +181,5 @@
         private System.Windows.Forms.Label gameNameLbl;
         private System.Windows.Forms.Label gameDescLbl;
         private System.Windows.Forms.Button startGameBtn;
-        private System.Windows.Forms.Button raceBtn;
-        private System.Windows.Forms.Button slidingBtn;
     }
 }

@@ -31,13 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TicTacToe));
             this.titleLbl = new System.Windows.Forms.Label();
             this.game_panel = new System.Windows.Forms.Panel();
-            this.character_panel = new System.Windows.Forms.Panel();
-            this.points_label = new System.Windows.Forms.Label();
-            this.player_lbl = new System.Windows.Forms.Label();
             this.playersTurn_label = new System.Windows.Forms.Label();
             this.playfield_panel = new System.Windows.Forms.Panel();
             this.game_panel.SuspendLayout();
-            this.character_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // titleLbl
@@ -56,46 +52,12 @@
             // 
             this.game_panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.game_panel.Controls.Add(this.character_panel);
             this.game_panel.Controls.Add(this.playersTurn_label);
             this.game_panel.Controls.Add(this.playfield_panel);
             this.game_panel.Location = new System.Drawing.Point(3, 44);
             this.game_panel.Name = "game_panel";
             this.game_panel.Size = new System.Drawing.Size(1332, 738);
             this.game_panel.TabIndex = 5;
-            // 
-            // character_panel
-            // 
-            this.character_panel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.character_panel.Controls.Add(this.points_label);
-            this.character_panel.Controls.Add(this.player_lbl);
-            this.character_panel.Location = new System.Drawing.Point(4, 3);
-            this.character_panel.Name = "character_panel";
-            this.character_panel.Size = new System.Drawing.Size(216, 184);
-            this.character_panel.TabIndex = 17;
-            // 
-            // points_label
-            // 
-            this.points_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.points_label.AutoSize = true;
-            this.points_label.Font = new System.Drawing.Font("Arial Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.points_label.Location = new System.Drawing.Point(193, 13);
-            this.points_label.Name = "points_label";
-            this.points_label.Size = new System.Drawing.Size(20, 22);
-            this.points_label.TabIndex = 17;
-            this.points_label.Text = "0";
-            this.points_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // player_lbl
-            // 
-            this.player_lbl.AutoSize = true;
-            this.player_lbl.Font = new System.Drawing.Font("Arial Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.player_lbl.Location = new System.Drawing.Point(3, 13);
-            this.player_lbl.Name = "player_lbl";
-            this.player_lbl.Size = new System.Drawing.Size(87, 22);
-            this.player_lbl.TabIndex = 9;
-            this.player_lbl.Text = "PLAYER1";
-            this.player_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // playersTurn_label
             // 
@@ -133,8 +95,6 @@
             this.Text = "TicTacToe";
             this.Load += new System.EventHandler(this.TicTacToe_Load);
             this.game_panel.ResumeLayout(false);
-            this.character_panel.ResumeLayout(false);
-            this.character_panel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,8 +106,5 @@
         private System.Windows.Forms.Panel game_panel;
         private System.Windows.Forms.Panel playfield_panel;
         private System.Windows.Forms.Label playersTurn_label;
-        private System.Windows.Forms.Panel character_panel;
-        private System.Windows.Forms.Label points_label;
-        private System.Windows.Forms.Label player_lbl;
     }
 }

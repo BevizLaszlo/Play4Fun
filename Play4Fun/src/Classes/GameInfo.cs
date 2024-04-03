@@ -12,13 +12,11 @@ namespace Play4Fun.src.Classes
         public static List<GameInfo> AllGameInfos = new List<GameInfo>();
         public string Name { get; set; }
         public string Description { get; set; }
-        public Form GameForm { get; set; }
 
-        public GameInfo(string name, string desc, Form gameForm)
+        public GameInfo(string name, string desc)
         {
             Name = name;
             Description = desc;
-            GameForm = gameForm;
 
             AllGameInfos.Add(this);
         }

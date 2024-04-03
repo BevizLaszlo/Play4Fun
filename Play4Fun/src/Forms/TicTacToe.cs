@@ -53,11 +53,14 @@ namespace Play4Fun.src.Forms
         private void UpdateContent()
         {
             playersTurn_label.Text = $"{Gameplay.Instance.Players[playerTurnIndex].Name.ToUpper()}'S TURN";
-            playersTurn_label.ForeColor = Gameplay.Instance.Players[Gameplay.PlayerTurnIndex].BackColor;
+            playersTurn_label.BackColor = Gameplay.Instance.Players[playerTurnIndex].BackColor;
+            playersTurn_label.ForeColor = Gameplay.Instance.Players[playerTurnIndex].ForeColor;
         }
 
         private void InitializeBoard()
         {
+            playfield_panel.Controls.Clear();
+
             board = new PictureBox[boardSize, boardSize];
             for (int i = 0; i < boardSize; i++)
             {
@@ -68,7 +71,8 @@ namespace Play4Fun.src.Forms
                         Width = playfield_panel.Width / boardSize,
                         Height = playfield_panel.Height / boardSize,
                         Location = new Point(i * playfield_panel.Width / boardSize, j * playfield_panel.Height / boardSize),
-                        BorderStyle = BorderStyle.FixedSingle
+                        BorderStyle = BorderStyle.FixedSingle,
+                        SizeMode = PictureBoxSizeMode.Zoom
                     };
                     pictureBox.Click += PictureBox_Click;
                     board[i, j] = pictureBox;
@@ -183,6 +187,17 @@ namespace Play4Fun.src.Forms
                         }
                     }
                 }
+            }
+
+            // ha döntetlen lett
+            int foglalt_mezo = 0;
+            foreach (var item in board)
+            {
+                if (item.Image != null) foglalt_mezo++;
+            }
+            if (foglalt_mezo == board.Length)
+            {
+                InitializeBoard();
             }
 
             return false;
