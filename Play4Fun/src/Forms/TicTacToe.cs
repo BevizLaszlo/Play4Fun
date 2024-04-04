@@ -39,7 +39,6 @@ namespace Play4Fun.src.Forms
                 default:
                     throw new Exception("Invalid number of players");
             }
-            InitializeBoard();
             currentPlayer = Player.PlayerList[playerTurnIndex];
             UpdateContent();
         }
@@ -48,13 +47,14 @@ namespace Play4Fun.src.Forms
             this.TopMost = true;
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
+            InitializeBoard();
         }
 
         private void UpdateContent()
         {
-            playersTurn_label.Text = $"{Gameplay.Instance.Players[playerTurnIndex].Name.ToUpper()}'S TURN";
-            playersTurn_label.BackColor = Gameplay.Instance.Players[playerTurnIndex].BackColor;
-            playersTurn_label.ForeColor = Gameplay.Instance.Players[playerTurnIndex].ForeColor;
+            playersTurn_label.Text = $"{currentPlayer.Name.ToUpper()}'S TURN";
+            playersTurn_label.BackColor = currentPlayer.BackColor;
+            playersTurn_label.ForeColor = currentPlayer.ForeColor;
         }
 
         private void InitializeBoard()
@@ -70,7 +70,7 @@ namespace Play4Fun.src.Forms
                     {
                         Width = playfield_panel.Width / boardSize,
                         Height = playfield_panel.Height / boardSize,
-                        Location = new Point(i * playfield_panel.Width / boardSize, j * playfield_panel.Height / boardSize),
+                        Location = new Point(i * (playfield_panel.Width / boardSize), j * (playfield_panel.Height / boardSize)),
                         BorderStyle = BorderStyle.FixedSingle,
                         SizeMode = PictureBoxSizeMode.Zoom
                     };
@@ -115,7 +115,7 @@ namespace Play4Fun.src.Forms
                         continue;
                     }
 
-                    // Vízszintes:
+                    // Row:
                     if (i <= boardSize - winLength)
                     {
                         bool win = true;
@@ -133,7 +133,7 @@ namespace Play4Fun.src.Forms
                         }
                     }
 
-                    // Függőleges:
+                    // Column:
                     if (j <= boardSize - winLength)
                     {
                         bool win = true;
@@ -151,7 +151,7 @@ namespace Play4Fun.src.Forms
                         }
                     }
 
-                    // Átlós: bal --> jobb
+                    // Diagonal: left --> right
                     if (i <= boardSize - winLength && j <= boardSize - winLength)
                     {
                         bool win = true;
@@ -169,7 +169,7 @@ namespace Play4Fun.src.Forms
                         }
                     }
 
-                    // Átlós jobb --> bal
+                    // Diagonal: right --> left
                     if (i >= winLength - 1 && j <= boardSize - winLength)
                     {
                         bool win = true;
@@ -189,13 +189,13 @@ namespace Play4Fun.src.Forms
                 }
             }
 
-            // ha döntetlen lett
-            int foglalt_mezo = 0;
+            // Draw
+            int reservedfield = 0;
             foreach (var item in board)
             {
-                if (item.Image != null) foglalt_mezo++;
+                if (item.Image != null) reservedfield++;
             }
-            if (foglalt_mezo == board.Length)
+            if (reservedfield == board.Length)
             {
                 InitializeBoard();
             }

@@ -103,30 +103,34 @@ namespace Play4Fun.src.Forms
             {
                 new EndForm().ShowDialog();
             }
-            switch (Gameplay.Instance.ListOfGames[Gameplay.Instance.CurrentTurn - 1].Name)
+            else
             {
-                case "Hangman":
-                    for (int i = 0; i < Gameplay.Instance.Players.Count; i++)
-                    {
-                        new HangmanWord().ShowDialog();
-                        Gameplay.PlayerTurnIndex++;
-                        if (Gameplay.PlayerTurnIndex >= Gameplay.Instance.Players.Count) Gameplay.PlayerTurnIndex = 0;
-                    }
-                    break;
-                case "Sliding Block Puzzle":
-                    new SlidingBlockPuzzle().ShowDialog();
-                    break;
-                case "Tic Tac Toe":
-                    new TicTacToe().ShowDialog();
-                    break;
-                case "Race Game":
-                    new RaceGame().ShowDialog();
-                    break;
-                default:
-                    break;
+                switch (Gameplay.Instance.ListOfGames[Gameplay.Instance.CurrentTurn - 1].Name)
+                {
+                    case "Hangman":
+                        for (int i = 0; i < Gameplay.Instance.Players.Count; i++)
+                        {
+                            new HangmanWord().ShowDialog();
+                            Gameplay.PlayerTurnIndex++;
+                            if (Gameplay.PlayerTurnIndex >= Gameplay.Instance.Players.Count) Gameplay.PlayerTurnIndex = 0;
+                        }
+                        break;
+                    case "Sliding Block Puzzle":
+                        new SlidingBlockPuzzle().ShowDialog();
+                        break;
+                    case "Tic Tac Toe":
+                        new TicTacToe().ShowDialog();
+                        break;
+                    case "Race Game":
+                        new RaceGame().ShowDialog();
+                        break;
+                    default:
+                        break;
+                }
+                Gameplay.Instance.CurrentTurn++;
+                UpdateFormContent();
             }
-            Gameplay.Instance.CurrentTurn++;
-            UpdateFormContent();
+
         }
     }
 }

@@ -46,7 +46,7 @@ namespace Play4Fun.src.Forms
             
             wrongWordCouldBe_label.Text = attempts.ToString();
             playersTurn_label.Text = $"{Gameplay.Instance.Players[playerGuessingIndex].Name.ToUpper()}'S TURN";
-            playersTurn_label.ForeColor = Gameplay.Instance.Players[Gameplay.PlayerTurnIndex].BackColor;
+            playersTurn_label.ForeColor = Gameplay.Instance.Players[playerGuessingIndex].BackColor;
 
             hangman_pictureBox.Image = Image.FromFile($@"..\..\src\images\{attempts}.png");
 

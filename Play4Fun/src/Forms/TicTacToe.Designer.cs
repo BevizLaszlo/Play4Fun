@@ -50,7 +50,8 @@
             // 
             // game_panel
             // 
-            this.game_panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.game_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.game_panel.Controls.Add(this.playersTurn_label);
             this.game_panel.Controls.Add(this.playfield_panel);
@@ -76,6 +77,7 @@
             this.playfield_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.playfield_panel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.playfield_panel.Location = new System.Drawing.Point(226, 0);
             this.playfield_panel.Name = "playfield_panel";
             this.playfield_panel.Size = new System.Drawing.Size(881, 663);
