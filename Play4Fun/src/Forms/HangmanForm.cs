@@ -23,14 +23,13 @@ namespace Play4Fun.src.Forms
         public HangmanForm(string word)
         {
             InitializeComponent();
-            secretWord = word;
+            secretWord = word.ToLower();
             foreach (char c in secretWord)
             {
                 if (c == ' ') guessedWord += ' ';
                 else guessedWord += "＿";
             }
             guessplayersword_label.Text = $"GUESS {Gameplay.Instance.Players[Gameplay.PlayerTurnIndex].Name.ToUpper()}'S WORD";
-            guessTextBox.MaxLength = 1;
             SetGuessingPlayer();
             UpdateContent();
         }

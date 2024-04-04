@@ -82,7 +82,7 @@
             this.playersTurn_label.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.playersTurn_label.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold);
             this.playersTurn_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(39)))));
-            this.playersTurn_label.Location = new System.Drawing.Point(205, 641);
+            this.playersTurn_label.Location = new System.Drawing.Point(242, 641);
             this.playersTurn_label.Name = "playersTurn_label";
             this.playersTurn_label.Size = new System.Drawing.Size(857, 32);
             this.playersTurn_label.TabIndex = 5;
