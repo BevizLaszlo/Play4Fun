@@ -116,6 +116,7 @@ namespace Play4Fun.src.Forms
                 Gameplay.Instance.Players[Gameplay.PlayerTurnIndex].PositionX = gameBoardWidth;
                 isPlayingIndex[Gameplay.PlayerTurnIndex] = false;
                 playerRanking.Add(Gameplay.Instance.Players[Gameplay.PlayerTurnIndex]);
+                MessageBox.Show($"{Gameplay.Instance.Players[Gameplay.PlayerTurnIndex].Name} reached the finish line.\nReached position: {playerRanking.Count}", "Alert", MessageBoxButtons.OK);
             }
             NextPlayerTurnIndex();
 

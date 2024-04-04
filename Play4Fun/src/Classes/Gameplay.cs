@@ -22,7 +22,7 @@ namespace Play4Fun.src.Classes
                 desc: "Try to solve the Sliding Block Puzzle as fast as possible. You can move the blocks by clicking on them. Based on your time, you will get the following points:\n1st place: 10 points\n2nd place: 8 points\n3rd place: 6 points\n4th place: 4 points"),
             new GameInfo(
                 name: "Tic Tac Toe",
-                desc: "..."),
+                desc: "The game ends with a winner; if it's a tie, the players replay the match. The division of the game board and the number of required symbols for winning are the following:\n2 players - 3x3 grid (3 symbols)\n3 players - 4x4 grid (4 symbols)\n4 players - 6x6 grid (5 symbols)\nSymbols are accepted in rows, columns, and diagonals. The winner receives 5 points."),
             new GameInfo(
                 name: "Race Game",
                 desc: "This game require a lot of luck. In this turn based game you will roll the dice and move forward to the finish line as much as you thrown. Based on your place, you will get the following points:\n1st place: 10 points\n2nd place: 8 points\n3rd place: 6 points\n4th place: 4 points"),

@@ -30,70 +30,70 @@ namespace Play4Fun.src.Forms
 
         private void UpdateFormContent()
         {
-            // turn render
-            turnLbl.Text = $"TURN: {Gameplay.Instance.CurrentTurn}/{Gameplay.Instance.NumOfTurns}";
-
             // game description and button render
             if (Gameplay.Instance.CurrentTurn > Gameplay.Instance.NumOfTurns)
             {
                 startGameBtn.Text = "NEXT";
                 turnLbl.Text = "THE GAME IS OVER";
                 gameNameLbl.Text = "Thank you for playing our game";
-                gameDescLbl.Text = $"Makers of the game:\nLászló Bevíz\nRévaiErik";
+                gameDescLbl.Text = $"Makers of the game:\nLászló Bevíz\nRévai Erik\n\nMusic was generated with Suno AI";
+                gameDescLbl.TextAlign = ContentAlignment.MiddleCenter;
                 nextGameLbl.Visible = false;
             }
             else
             {
+                turnLbl.Text = $"TURN: {Gameplay.Instance.CurrentTurn}/{Gameplay.Instance.NumOfTurns}";
                 gameNameLbl.Text = Gameplay.Instance.ListOfGames[Gameplay.Instance.CurrentTurn - 1].Name;
                 gameDescLbl.Text = Gameplay.Instance.ListOfGames[Gameplay.Instance.CurrentTurn - 1].Description;
+            }
 
-                // standings render
-                standingPnl.Controls.Clear();
-                Gameplay.Instance.SortPlayers();
-                int index = 0;
-                foreach (Player player in Gameplay.Instance.Players)
+            // standings render
+            standingPnl.Controls.Clear();
+            Gameplay.Instance.SortPlayers();
+            int index = 0;
+            foreach (Player player in Gameplay.Instance.Players)
+            {
+                Panel mainPnl = new Panel()
                 {
-                    Panel mainPnl = new Panel()
-                    {
-                        Top = index * (110),
-                        Left = 0,
-                        Width = standingPnl.Width / 2 + player.Points * 5,
-                        Height = 100,
-                        ForeColor = player.ForeColor,
-                        BackColor = player.BackColor,
-                        Font = new Font("Arial", 16, FontStyle.Bold)
-                    };
+                    Top = index * (110),
+                    Left = 0,
+                    Width = standingPnl.Width / 2 + player.Points * 5,
+                    Height = 100,
+                    ForeColor = player.ForeColor,
+                    BackColor = player.BackColor,
+                    Font = new Font("Arial", 16, FontStyle.Bold)
+                };
 
-                    mainPnl.Controls.Add(new Label()
-                    {
-                        Text = $"{index + 1}",
-                        Top = 40,
-                        Left = 10,
-                        AutoSize = true
-                    });
+                mainPnl.Controls.Add(new Label()
+                {
+                    Text = $"{index + 1}",
+                    Top = 40,
+                    Left = 10,
+                    AutoSize = true
+                });
 
-                    mainPnl.Controls.Add(new PictureBox()
-                    {
-                        Top = 10,
-                        Left = 40,
-                        Width = 80,
-                        Height = 80,
-                        Image = player.Image,
-                        SizeMode = PictureBoxSizeMode.Zoom
-                    });
+                mainPnl.Controls.Add(new PictureBox()
+                {
+                    Top = 10,
+                    Left = 40,
+                    Width = 80,
+                    Height = 80,
+                    Image = player.Image,
+                    SizeMode = PictureBoxSizeMode.Zoom
+                });
 
-                    mainPnl.Controls.Add(new Label()
-                    {
-                        Text = $"{player.Name} — {player.Points} POINTS",
-                        Top = 40,
-                        Left = 130,
-                        AutoSize = true
-                    });
+                mainPnl.Controls.Add(new Label()
+                {
+                    Text = $"{player.Name} — {player.Points} POINTS",
+                    Top = 40,
+                    Left = 130,
+                    AutoSize = true
+                });
 
-                    standingPnl.Controls.Add(mainPnl);
+                standingPnl.Controls.Add(mainPnl);
 
-                    index++;
-                }
+                index++;
+                
             }
         }
 
