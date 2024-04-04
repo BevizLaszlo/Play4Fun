@@ -4,16 +4,20 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Play4Fun.src.Classes;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
+
 namespace Play4Fun.src.Forms
 {
+   
     public partial class Game : Form
-    {
+    {   
+        
         private Panel[] characterPanels;
         private GameModeForm gameModeForm = new GameModeForm();
         int[] templates = new int[4] { 0, 1, 2, 3 };
@@ -27,6 +31,7 @@ namespace Play4Fun.src.Forms
             new CharacterTemplate(@"..\..\src\images\yellow.png", Color.FromArgb(255, 255, 0), Color.Black);
             new CharacterTemplate(@"..\..\src\images\red.png", Color.FromArgb(255, 0, 0), Color.Black);
 
+            
 
             UpdateAllTemplates();
         }
