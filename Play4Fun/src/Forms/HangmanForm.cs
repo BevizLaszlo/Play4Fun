@@ -23,7 +23,7 @@ namespace Play4Fun.src.Forms
         public HangmanForm(string word)
         {
             InitializeComponent();
-            secretWord = word.ToLower();
+            secretWord = word.ToUpper();
             foreach (char c in secretWord)
             {
                 if (c == ' ') guessedWord += ' ';
@@ -79,7 +79,7 @@ namespace Play4Fun.src.Forms
 
         private void guessBtn_Click(object sender, EventArgs e)
         {
-            string word = guessTextBox.Text;
+            string word = guessTextBox.Text.ToUpper();
             char character = ' ';
             guessTextBox.Text = string.Empty;
 
